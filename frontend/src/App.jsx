@@ -3,6 +3,7 @@ import Sidebar from './Component/common/Sidebar'
 import './index.css'
 import KpiCard from './Component/common/KpiCard'
 import HeatMap from './Component/common/HeatMap'
+import RecordTable from './Component/common/RecordTable'
 const App = () => {
   return (
     <div className='main-container'>
@@ -19,7 +20,13 @@ const App = () => {
 
 
         <div className='kpi-heatmap'>
-          <HeatMap />
+          <div className="heatmap">
+                      <HeatMap />
+          </div>
+          <div className="record-table">
+            
+          <RecordTable />
+          </div>
         </div>
     </div>
     </div>

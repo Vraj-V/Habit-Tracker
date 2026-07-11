@@ -12,7 +12,7 @@
 .main-container{
   display: flex;
   overflow: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   scrollbar-width: thin;
   
 
@@ -25,8 +25,8 @@
 }
 
 .right-side{
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: rgb(235, 229, 222);
 }
 
@@ -110,7 +110,12 @@
   text-align: center;
 }
 .kpi-heatmap{
-  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 10px 20px;
+  gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
 }
 .heatmap-graph{
   max-width: 100%;
@@ -121,4 +126,98 @@
 .heatmap{
   width: 100%;
   height: 100%;
+}
+
+.heatmap-title-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heatmap-year-options{
+  padding: 8px 12px;
+  background-color: rgba(245, 245, 220, 0.555);
+  color: rgb(20, 13, 27);
+  font-size: 24px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  border-radius: 12px;
+}
+.ht-options{
+  background-color: rgba(196, 194, 194, 0.267) !important;
+  padding: 12px 18px !important;
+  font-size: 20px !important;
+  border-radius: 20px;
+}
+
+.records-container{
+  max-width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.records-table{
+  display: grid;
+  padding-top: 20px ;
+}
+.sort-btn{
+  font-size: 18px;
+  font-weight: 800;
+  color: darkgray;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+.table-tr{
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 18px;
+}
+.records-table,
+.table-tr{
+    grid-template-columns: 2fr 1fr 1.2fr 1fr 0.5fr;
+
+}
+
+.table-tr:nth-child(even){
+  background-color: rgb(187, 185, 185); 
+}
+
+/* 1. Base styles applied to BOTH states */
+.base-progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
+  height: 10px;
+  border: none;
+}
+
+.base-progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.base-progress::-webkit-progress-value {
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.base-progress::-moz-progress-bar {
+  border-radius: 10px;
+}
+
+/* 2. Dynamic Color changes */
+/* Chrome, Safari, Edge */
+.custom-progress-success::-webkit-progress-value {
+  background-color: #0bc56e;
+}
+.custom-progress-pending::-webkit-progress-value {
+  background-color: #3b82f6;
+}
+
+/* Firefox fallback */
+.custom-progress-success::-moz-progress-bar {
+  background-color: #0bc56e;
+}
+.custom-progress-pending::-moz-progress-bar {
+  background-color: #3b82f6;
 }

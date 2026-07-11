@@ -7,9 +7,8 @@ import "react-calendar-heatmap/dist/styles.css";
 function generateRandomData() {
   const today = new Date();
   const startDate = new Date();
-  startDate.setFullYear(today.getFullYear() - 1);
-  startDate.setDate(startDate.getDate() + 1);
-
+   startDate.setFullYear(today.getFullYear() - 1);
+    startDate.setDate(startDate.getDate() + 1);
   const values = [];
   for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
     values.push({
@@ -27,11 +26,19 @@ export default function HeatMap() {
     setData(generateRandomData());
   }, []);
 
+  const yearDate = new Date(new Date().setFullYear(new Date().getFullYear() - 1))
+  
   return (
     <div className="heatmap-graph">
+      <div className="heatmap-title-section">
       <h2>GitHub-Style 12-Month Heatmap</h2>
+      <select name="year" id="year" className="heatmap-year-options">
+          <option className="ht-options" value="current-year"> 2026</option>
+          <option className="ht-options" value="last-year"> 2025</option>
+      </select>
+      </div>
       <CalendarHeatmap
-        startDate={new Date(new Date().setFullYear(new Date().getFullYear() - 1))}
+        startDate={yearDate}
         endDate={new Date()}
         className ='heatmap'
         values={data}
