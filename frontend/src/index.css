@@ -1,0 +1,314 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --bg: #fff;
+  --card : #fefefe;
+  --sidebar : #fff8f3;
+}
+
+.main-container{
+  display: flex;
+  overflow: hidden;
+  /* overflow-y: auto; */
+  scrollbar-width: thin;
+  
+
+}
+
+.left-sidebar{
+  width: 20%;
+  height: 100%;
+  background-color: black;
+}
+
+.right-side{
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgb(235, 229, 222);
+}
+
+
+.sb-container{
+  width: 20vw;
+  height: 100vh;
+  background-color: #fff;
+}
+.component-title{
+  padding: 10px 0px 0px 20px;
+  font-size: 32px;
+}
+
+.component-subtitle{
+  color: orangered;
+}
+.sb-parent{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+}
+
+
+.sb-menu {
+    width: 220px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sb-menu-title {
+    color: gray;
+    font-size: 40px;
+    transition: 0.3s;
+}
+
+
+.active-menu {
+    background: #fff4e8;
+}
+
+.active-menu .sb-menu-title {
+    color: #ff6b00;
+    font-weight: 700;
+}
+
+/* Hover effect */
+.sb-menu:hover {
+    background: #f5f5f5;
+}
+
+
+
+.sb-new-habit{
+  padding: 18px 82px;
+  font-size: 24px;
+  background-color: #e6e3e33d;
+  border: 1px solid grey;
+  border-radius: 12px;
+}
+.kpi-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 72px;
+  padding: 42px 32px;
+}
+
+.kpi-card-section{
+  display: grid;
+  grid-template-rows: 1fr  1fr;
+  min-width: 400px;
+  min-height: 120px;
+  background-color: #fff;
+  padding: 10px 18px;
+}
+
+.kpi-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kpi-category-profile{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: orangered;
+  text-align: center;
+  padding-bottom: 2px;
+  transform: translateX(-5px);
+  font-size: 29px;
+  color: white;
+}
+
+.kpi-subtitle{
+  color: gray;
+  font-size: 20px;
+  text-align: right;
+}
+
+.kpi-main{
+  font-size: 23px;
+  text-align: center;
+}
+.kpi-heatmap{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 10px 20px;
+  gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.heatmap-graph{
+  max-width: 100%;
+  padding: 20px 24px 10px 12px;
+  background-color: var(--bg);
+}
+
+.heatmap{
+  width: 100%;
+  height: 100%;
+}
+
+.heatmap-title-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heatmap-year-options{
+  padding: 8px 12px;
+  background-color: rgba(245, 245, 220, 0.555);
+  color: rgb(20, 13, 27);
+  font-size: 24px;
+  border: 1px solid rgba(128, 128, 128, 0.178);
+  border-radius: 12px;
+}
+.ht-options{
+  background-color: rgba(196, 194, 194, 0.267) !important;
+  padding: 12px 18px !important;
+  font-size: 20px !important;
+  border-radius: 20px;
+}
+
+.records-container{
+  max-width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.records-table{
+  display: grid;
+  padding-top: 20px ;
+}
+.sort-btn{
+  font-size: 18px;
+  font-weight: 800;
+  color: darkgray;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+.table-tr{
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 18px;
+}
+.records-table,
+.table-tr{
+    grid-template-columns: 2fr 1fr 1.2fr 1fr 0.5fr;
+
+}
+
+.table-tr:nth-child(even),
+.table-tr-water:nth-child(even),
+.table-cell:nth-child(even){
+  background-color: rgba(219, 217, 217, 0.582); 
+  border-radius: 8px;
+}
+
+/* 1. Base styles applied to BOTH states */
+.base-progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
+  height: 10px;
+  border: none;
+}
+
+.base-progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.base-progress::-webkit-progress-value {
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.base-progress::-moz-progress-bar {
+  border-radius: 10px;
+}
+
+/* 2. Dynamic Color changes */
+/* Chrome, Safari, Edge */
+.custom-progress-success::-webkit-progress-value {
+  background-color: #0bc56e;
+}
+.custom-progress-pending::-webkit-progress-value {
+  background-color: #3b82f6;
+}
+
+/* Firefox fallback */
+.custom-progress-success::-moz-progress-bar {
+  background-color: #0bc56e;
+}
+.custom-progress-pending::-moz-progress-bar {
+  background-color: #3b82f6;
+}
+
+
+.water-chart{
+  background-color: #fff;
+  padding: 10px 12px;
+}
+.sort-btn-water{
+  
+  font-size: 18px;
+  font-weight: 800;
+  color: darkgray;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+
+.table-tr-water{
+  
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 18px;
+}
+.sort-btn-water,
+.table-tr-water{
+  display: grid;
+  grid-template-columns: 2fr 1fr .5fr;
+
+}
+
+.reading-graph{
+  background-color: #fff;
+  padding: 12px 14px;
+}
+
+.reading-table{
+  display: grid; 
+  font-size: 25px;
+  font-weight: 800;
+  color: darkgray;
+  padding: 20px 0px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+
+.table-cell{
+  
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 24px;
+}
+.reading-table,
+.table-cell
+{
+  grid-template-columns: 1fr 1fr 0.5fr;
+}
