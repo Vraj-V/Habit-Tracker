@@ -1,33 +1,36 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Sidebar from './Component/common/Sidebar'
 import './index.css'
 import KpiCard from './Component/common/KpiCard'
 import HeatMap from './Component/common/HeatMap'
 import RecordTable from './Component/common/RecordTable'
+import Exercise from './Component/Habit/Exercise'
+import Water from './Component/Habit/Water'
+import Reading from './Component/Habit/Reading'
 const App = () => {
+
+    const [activeHabit, setActiveHabit] = useState(()=>{
+      return localStorage.getItem('activeHabit') || '1'
+    });
+
+    useEffect(()=>{
+      localStorage.setItem("activeHabit",activeHabit);
+    },[activeHabit]);
+
   return (
     <div className='main-container'>
       
     <div className="left-sidebar">
-      <Sidebar />
+      <Sidebar 
+        activeHabit= {activeHabit}
+        setActiveHabit = {setActiveHabit}
+      />
     </div>
     <div className="right-side">
-        <div className='kpi-cards'>
-            <KpiCard id='steak-count' title='Total Steak' main_value='3' subtitle='Goal Steak' category='E' />
-            <KpiCard id='Total-count' title='Longest Steak' main_value='31' subtitle='Highest Steak' category='L' />
-            <KpiCard id='Total-count' title='Today performace' main_value='62.39%' subtitle='Overall perform' category='L' />
-        </div>
+      {activeHabit === "1" && <Exercise />}
+      {activeHabit === "2" && <Water />}
+      {activeHabit === "3" && <Reading />}
 
-
-        <div className='kpi-heatmap'>
-          <div className="heatmap">
-                      <HeatMap />
-          </div>
-          <div className="record-table">
-            
-          <RecordTable />
-          </div>
-        </div>
     </div>
     </div>
   )

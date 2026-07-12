@@ -54,11 +54,42 @@
   gap: 42px;
 }
 
-.sb-menu-title{
-  text-align: center;
-  gap: 2px;
-  font-size: 42px ;
+
+.sb-menu {
+    width: 220px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.sb-menu-title {
+    color: gray;
+    font-size: 40px;
+    transition: 0.3s;
+}
+
+
+.active-menu {
+    background: #fff4e8;
+}
+
+.active-menu .sb-menu-title {
+    color: #ff6b00;
+    font-weight: 700;
+}
+
+/* Hover effect */
+.sb-menu:hover {
+    background: #f5f5f5;
+}
+
+
+
 .sb-new-habit{
   padding: 18px 82px;
   font-size: 24px;
@@ -67,7 +98,8 @@
   border-radius: 12px;
 }
 .kpi-cards{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 72px;
   padding: 42px 32px;
 }
@@ -178,8 +210,11 @@
 
 }
 
-.table-tr:nth-child(even){
-  background-color: rgb(187, 185, 185); 
+.table-tr:nth-child(even),
+.table-tr-water:nth-child(even),
+.table-cell:nth-child(even){
+  background-color: rgba(219, 217, 217, 0.582); 
+  border-radius: 8px;
 }
 
 /* 1. Base styles applied to BOTH states */
@@ -220,4 +255,60 @@
 }
 .custom-progress-pending::-moz-progress-bar {
   background-color: #3b82f6;
+}
+
+
+.water-chart{
+  background-color: #fff;
+  padding: 10px 12px;
+}
+.sort-btn-water{
+  
+  font-size: 18px;
+  font-weight: 800;
+  color: darkgray;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+
+.table-tr-water{
+  
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 18px;
+}
+.sort-btn-water,
+.table-tr-water{
+  display: grid;
+  grid-template-columns: 2fr 1fr .5fr;
+
+}
+
+.reading-graph{
+  background-color: #fff;
+  padding: 12px 14px;
+}
+
+.reading-table{
+  display: grid; 
+  font-size: 25px;
+  font-weight: 800;
+  color: darkgray;
+  padding: 20px 0px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.322);
+}
+
+.table-cell{
+  
+  display: grid;
+  padding: 14px 7px;
+  gap: 0px;
+  font-size: 24px;
+}
+.reading-table,
+.table-cell
+{
+  grid-template-columns: 1fr 1fr 0.5fr;
 }

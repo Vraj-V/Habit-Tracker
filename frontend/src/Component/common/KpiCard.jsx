@@ -1,6 +1,6 @@
 import React from 'react'
 
-const KpiCard = ({title,id,subtitle,main_value,category}) => {
+const KpiCard = ({title,id,subtitle,main_value,category,icons}) => {
 
 
   return (
@@ -13,7 +13,7 @@ const KpiCard = ({title,id,subtitle,main_value,category}) => {
             </div>
 
             <div className="kpi-main">
-                <h1>{main_value}</h1>
+                <h1> <span>{icons} </span> {main_value}</h1>
             </div>
 
             <div className="kpi-subtitle">
