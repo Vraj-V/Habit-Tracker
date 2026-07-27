@@ -1,11 +1,29 @@
-from pathlib import Path
-from sqlalchemy import create_engine
+import os
+from motor.motor_asyncio import AsyncIOMotorClient
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-db_path = Path("./app/data/Habit-tracker.db").resolve()
+MONGO_URI = os.getenv("MONGODB_URI")
+DB_NAME = os.getenv("MONGO_DB_NAME", "habit_tracker")
 
-print("Database Path :", db_path);
+class Database:
+    client : AsyncIOMotorClient = None
+    db = None
 
-Database_URL = f'sqlite:///{db_path}'
+db_instance = Database()
 
-engine = create_engine(Database_URL)
+
+async def connect_to_mongo():
+    db_instance.client = AsyncIOMotorClient(MONGO_URI)
+    db_instance.db = db_instance.client[DB_NAME]
+    print(f"Connected to MongoDB database: {DB_NAME}")
+
+
+async def close_mongo_connection():
+    db_instance.client.close()
+    print("MongoDB connection closed")
+
+def get_database():
+    return db_instance.db

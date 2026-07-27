@@ -1,22 +1,15 @@
 from fastapi import FastAPI
-from sqlalchemy import text
-from app.database import engine
+from .database import connect_to_mongo, close_mongo_connection
+from .routes.water_route import router as water_router
 
 app = FastAPI()
 
-@app.get("/")
-def home():
-    with engine.connect() as conn:
-        result = conn.execute(text("PRAGMA database_list;"))
-        db = [dict(row._mapping) for row in result]
+app.include_router(water_router)
 
-        tables = [
-            row[0]
-            for row in conn.execute(
-                text("SELECT name FROM sqlite_master WHERE type='table';")
-            )
-        ]
-    return {
-        "database": db,
-        "tables": tables
-    }
+@app.on_event("startup")
+async def startup_db_client():
+    await connect_to_mongo()
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    await close_mongo_connection()
