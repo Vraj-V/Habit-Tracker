@@ -1,0 +1,163 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  /* Colors */
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-accent: #10b981;
+  --color-error: #f43f5e;
+  --color-warning: #f59e0b;
+  --color-orange: #f59e0b;
+
+  /* Backgrounds */
+  --color-background: #0a0a0b;
+  --color-surface: #1a1a1f;
+  --color-surface-darker: #121218;
+  --color-surface-hover: #252530;
+  --color-border: #2d2d35;
+  --color-foreground: #ffffff;
+  --color-muted: #9ca3af;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-[#4f46e5];
+  }
+
+  .bg-primary-dark {
+    @apply bg-[#3730a3];
+  }
+
+  .bg-accent {
+    @apply bg-[#10b981];
+  }
+
+  .bg-error {
+    @apply bg-[#f43f5e];
+  }
+
+  .bg-warning {
+    @apply bg-[#f59e0b];
+  }
+
+  .bg-background {
+    @apply bg-[#0a0a0b];
+  }
+
+  .bg-surface {
+    @apply bg-[#1a1a1f];
+  }
+
+  .bg-surface-darker {
+    @apply bg-[#121218];
+  }
+
+  .bg-surface-hover {
+    @apply bg-[#252530];
+  }
+
+  .text-primary {
+    @apply text-[#4f46e5];
+  }
+
+  .text-accent {
+    @apply text-[#10b981];
+  }
+
+  .text-error {
+    @apply text-[#f43f5e];
+  }
+
+  .text-warning {
+    @apply text-[#f59e0b];
+  }
+
+  .text-foreground {
+    @apply text-white;
+  }
+
+  .text-muted {
+    @apply text-[#9ca3af];
+  }
+
+  .border-border {
+    @apply border-[#2d2d35];
+  }
+
+  .bg-primary\/10 {
+    @apply bg-[rgba(79,70,229,0.1)];
+  }
+
+  .bg-primary\/20 {
+    @apply bg-[rgba(79,70,229,0.2)];
+  }
+
+  .bg-accent\/10 {
+    @apply bg-[rgba(16,185,129,0.1)];
+  }
+
+  .bg-accent\/20 {
+    @apply bg-[rgba(16,185,129,0.2)];
+  }
+
+  .bg-error\/10 {
+    @apply bg-[rgba(244,63,94,0.1)];
+  }
+
+  .bg-error\/20 {
+    @apply bg-[rgba(244,63,94,0.2)];
+  }
+
+  .border-primary {
+    @apply border-[#4f46e5];
+  }
+
+  .border-error {
+    @apply border-[#f43f5e];
+  }
+
+  .border-primary\/20 {
+    @apply border-[rgba(79,70,229,0.2)];
+  }
+
+  .border-error\/20 {
+    @apply border-[rgba(244,63,94,0.2)];
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
